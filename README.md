@@ -5,5 +5,5 @@ A Web App that allows users to search for images using a search bar. The app wil
 This app is a project that is part of the Udemy course 'Modern React with Redux [2019 Update]'
 
 <p align="center">
-    <img src="public/dogs.png" width="350" title="dogs">
+    <img src="public/dogs.png" width="1000" title="dogs">
 </p>
