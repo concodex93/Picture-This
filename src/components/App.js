@@ -9,11 +9,22 @@ class App extends React.Component {
   state = { images: [] };
   onSearchSubmit = async term => {
     // Call to axios function
-    const response = await unsplash.get(url, {
-      params: { query: term }
-    });
-    // Set images to state
-    this.setState({ images: response.data.results });
+    try {
+      const response = await unsplash.get(url, {
+        params: { query: term }
+      });
+      // Set images to state
+      if (response.data.results.length !== 0) {
+        this.setState({ images: response.data.results });
+        console.log(this.state.images);
+      } else {
+        alert(
+          `Hmm, ${term} is a little vague. Can you be a bit more specific?`
+        );
+      }
+    } catch (error) {
+      alert(`Ops, something went wrong - ${error}`);
+    }
   };
 
   render() {

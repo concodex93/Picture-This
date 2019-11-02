@@ -30,6 +30,7 @@ class SearchBar extends React.Component {
             <label>Image Search</label>
             <input
               type="text"
+              placeholder="What images do you want to see? Keep it PG..."
               // Controlled component
               value={this.state.term}
               onChange={event => this.setState({ term: event.target.value })}
