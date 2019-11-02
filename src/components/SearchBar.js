@@ -8,18 +8,32 @@ import React from 'react';
 class SearchBar extends React.Component {
   // Gets called thru onChange property set within input
   // Community conventional ~ on|element name|event name
-  onInputChange(event) {
-    let text = event.target.value;
-    console.log(text);
-  }
+  //   onInputChange(event) {
+  //     let text = event.target.value;
+  //     console.log(text);
+  //   }
+  state = { term: '' };
+
+  // Arrow functions automatically bind the value of this for all code inside function
+  onFormSubmit = event => {
+    // Prevents form from submitting
+    event.preventDefault();
+    // Assign state.term to callback
+    this.props.onSubmit(this.state.term);
+  };
 
   render() {
     return (
       <div className="ui segment">
-        <form className="ui form">
+        <form onSubmit={this.onFormSubmit} className="ui form">
           <div className="field">
             <label>Image Search</label>
-            <input type="text" onChange={this.onInputChange} />
+            <input
+              type="text"
+              // Controlled component
+              value={this.state.term}
+              onChange={event => this.setState({ term: event.target.value })}
+            />
           </div>
         </form>
       </div>
