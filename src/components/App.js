@@ -1,7 +1,7 @@
 import React from 'react';
-import axios from 'axios';
 import SearchBar from './SearchBar';
 import unsplash from '../api/unsplash';
+import ImageList from './ImageList';
 
 const url = 'search/photos';
 
@@ -21,7 +21,7 @@ class App extends React.Component {
       <div className="ui container" style={{ marginTop: '10px' }}>
         {/* Pass callback to Searchbar.js */}
         <SearchBar onSubmit={this.onSearchSubmit} />
-        Found : {this.state.images.length}
+        <ImageList images={this.state.images} />
       </div>
     );
   }

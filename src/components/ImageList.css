@@ -1,0 +1,16 @@
+.image-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 10px;
+  grid-gap: 0 10px;
+}
+
+.image-list img {
+  /* Will set all images to the same size */
+  /* object-fit: cover;
+  width: 100%;
+  height: 100%; */
+  /* Sets image size based on clientHeight from ImageCard.js */
+  width: 250px;
+  grid-row-end: span 2;
+}
